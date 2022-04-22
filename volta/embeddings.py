@@ -414,7 +414,7 @@ class VisualBertEmbeddings(nn.Module):
                 position_embeddings_visual = position_embeddings_visual + \
                     self.position_embeddings_visual(position_ids_visual)
             else:
-                position_ids_visual = torch.zeros(*visual_embeddings.size()[:-1], dtype=torch.long).cuda()
+                position_ids_visual = torch.zeros(*visual_embeddings.size()[:-1], dtype=torch.long)
                 position_embeddings_visual = self.position_embeddings_visual(position_ids_visual)
 
             v_embeddings = visual_embeddings + position_embeddings_visual + token_type_embeddings_visual
